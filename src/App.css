@@ -1,19 +1,26 @@
 
-.listItem {
-  padding: 30px;
+body {
+  background: #e3dbbf;
 }
 
 .container-flex {
+  margin: auto;
+  width: 90%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: baseline;
 }
 
 .flex-item {
-  flex: 1;
+  width: 60%;
+}
+
+.listItem {
+  margin: 30px;
 }
 
 .modal1 {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;

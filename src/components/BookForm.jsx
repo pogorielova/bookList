@@ -3,11 +3,8 @@ import {Form, Button} from 'react-bootstrap';
 
 function BookForm(props) {
   return (
-    <Form className='flex-item'>
-        <fieldset>
-
-            <legend>Add Book</legend>
-            <Form.Group onClick={() => props.handleAddModal}>
+    <Form>
+            <Form.Group>
             <Form.Label>Book Name:
                 <Form.Control type="text" onChange={props.handleInput}  value={props.myBook.bookName} name='bookName'/></Form.Label>
                 </Form.Group>
@@ -24,9 +21,6 @@ function BookForm(props) {
                 <Form.Control type="text" onChange={props.handleInput} value={props.myBook.author} name="author"/></Form.Label>
                 </Form.Group>
             <Button variant="success" type="button" onClick={props.handleAddModal}>Add Book</Button>
-
-        </fieldset>
-
     </Form>
   )
 }

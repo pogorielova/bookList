@@ -6,7 +6,7 @@ function RemoveModal(props) {
     <div className='modal1'>
       <div className='modal-text'>Are you sure you want to delete the book?</div>
       <div>
-      <Button variant='danger' onClick={props.handleRemoveBook}>Yes</Button>
+      <Button variant='danger' onClick={() => props.handleRemoveBook(props.book)}>Yes</Button>
       <Button variant='secondary' onClick={props.handleRemoveModal}>No</Button>
       </div>
     </div>

@@ -14,9 +14,9 @@ class App extends React.Component {
         this.state = {
             books: myBooks,
             myBook: {
-                bookName:'',
+                title:'',
                 year: '',
-                page: '',
+                pages: '',
                 author:''
             },
             isAddModalOpen: false,
@@ -41,16 +41,22 @@ class App extends React.Component {
                 year: '',
                 page: '',
                 author: ''
-            }
+            },
+            bookToDelete: null,
         })
 
         this.handleAddModal();
     }
 
+    selectBookToDelete = (book) => {
+      this.setState( {bookToDelete: book})
+      this.handleRemoveModal();
+    }
+
     handleRemoveBook = (book) => {
       this.setState({
         books: this.state.books.filter(item => {
-          return item !== book
+          return item !== this.state.bookToDelete
         })
       })
       this.handleRemoveModal();
@@ -72,12 +78,13 @@ class App extends React.Component {
     render(){
         return(
         <div>
-            <div className='container-flex'>
-                <div className='flex-item'>
-                    {this.state.books.map(item => <ListItem book ={item} handleRemoveBook={this.handleRemoveBook} handleRemoveModal={this.handleRemoveModal} />)}
-                </div>
 
-                <BookForm handleAddModal={this.handleAddModal} handleAddBook={this.handleAddBook} handleInput={this.handleInput} myBook={this.state.myBook}/>
+            <div className='container-flex'>
+              <div className='flex-item'>
+                {this.state.books.map(item => <ListItem book={item} handleRemoveBook={this.handleRemoveBook} handleRemoveModal={this.handleRemoveModal} selectBookToDelete={this.selectBookToDelete}/>)}
+              </div>
+
+              <BookForm handleAddModal={this.handleAddModal} handleAddBook={this.handleAddBook} handleInput={this.handleInput} myBook={this.state.myBook} />
             </div>
             {this.state.isAddModalOpen ? <AddModal handleAddBook={this.handleAddBook} handleAddModal={this.handleAddModal} /> : null}
 

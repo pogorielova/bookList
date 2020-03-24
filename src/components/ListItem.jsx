@@ -3,13 +3,12 @@ import { ListGroup } from 'react-bootstrap';
 
 function ListItem(props){
 
-    console.log(props);
     return(
         <div className='listItem'>
-            <ListGroup onClick={() => props.handleRemoveModal()}>
-                <ListGroup.Item>{props.book.bookName}</ListGroup.Item>
+            <ListGroup onClick={() => props.selectBookToDelete(props.book)}>
+                <ListGroup.Item>{props.book.title}</ListGroup.Item>
                 <ListGroup.Item>{props.book.year}</ListGroup.Item>
-                <ListGroup.Item>{props.book.page}</ListGroup.Item>
+                <ListGroup.Item>{props.book.pages}</ListGroup.Item>
                 <ListGroup.Item>{props.book.author}</ListGroup.Item>
             </ListGroup>
         </div>
